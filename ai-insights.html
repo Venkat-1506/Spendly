@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Insights - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ai-insights.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="budget-planner.html" class="nav-link">Budget</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="ai-insights.html" class="nav-link active">AI Insights</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="settings.html" class="nav-link">Settings</a>
+        </div>
+        <div class="user-pill">
+    <div class="avatar" id="user-avatar" onclick="toggleUserDropdown(event)">U</div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="dropdown-header">
+            <div class="dropdown-avatar" id="dropdownAvatar">U</div>
+            <div class="dropdown-user-info">
+                <div class="dropdown-user-name" id="dropdownUserName">User Name</div>
+                <div class="dropdown-user-email" id="dropdownUserEmail">user@example.com</div>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a href="settings.html" class="dropdown-item">
+            <span class="dropdown-icon">⚙️</span>
+            <span>Settings</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" onclick="doLogout(); return false;" class="dropdown-item dropdown-logout">
+            <span class="dropdown-icon">🚪</span>
+            <span>Logout</span>
+        </a>
+    </div>
+    <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="budget-planner.html">Budget</a>
+        <a href="goals.html">Goals</a>
+        <a href="reports.html">Reports</a>
+        <a href="ai-insights.html">AI Insights</a>
+        <a href="team.html">Team</a>
+        <a href="settings.html">Settings</a>
+        <a href="#" onclick="doLogout()">Logout</a>
+    </div>
+
+    <div class="ai-insights-page">
+        <div class="page-header">
+            <h1>🤖 AI Financial Intelligence</h1>
+            <p>Smart analysis powered by artificial intelligence</p>
+        </div>
+
+        <div class="ai-score-card">
+            <div class="ai-score-label">🏆 Your Financial Health Score</div>
+            <div class="ai-score-value" id="ai-score">78</div>
+            <div class="ai-score-message" id="ai-message">Loading your financial analysis...</div>
+        </div>
+
+        <div class="quick-stats-row">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-label">Monthly Avg Spend</div>
+                <div class="stat-value" id="avg-monthly">₹0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-label">Spending Trend</div>
+                <div class="stat-value" id="spending-trend">0%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-label">Potential Savings</div>
+                <div class="stat-value" id="potential-savings">₹0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-label">Budget Adherence</div>
+                <div class="stat-value" id="budget-adherence">0%</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>📈 Spending Forecast (Next 3 Months)</h3>
+                <div class="chart-container">
+                    <canvas id="forecast-chart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>🎯 Category Comparison</h3>
+                <div class="chart-container">
+                    <canvas id="comparison-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-grid">
+            <div class="insight-card">
+                <div class="insight-header">
+                    <div class="insight-icon">💡</div>
+                    <div class="insight-title">Spending Pattern</div>
+                </div>
+                <div class="insight-content" id="pattern-insight">Analyzing your spending patterns...</div>
+                <div class="insight-badge" id="pattern-badge">AI Analysis</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-header">
+                    <div class="insight-icon">⚠️</div>
+                    <div class="insight-title">Risk Detection</div>
+                </div>
+                <div class="insight-content" id="risk-insight">Scanning for financial risks...</div>
+                <div class="insight-badge" id="risk-badge">Risk Score</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-header">
+                    <div class="insight-icon">📅</div>
+                    <div class="insight-title">Seasonal Pattern</div>
+                </div>
+                <div class="insight-content" id="seasonal-insight">Detecting seasonal trends...</div>
+                <div class="insight-badge" id="seasonal-badge">Pattern Match</div>
+            </div>
+        </div>
+
+        <div class="recommendations-section">
+            <h3>🎯 AI-Powered Recommendations</h3>
+            <div id="recommendations-list" class="recommendations-list">
+                <div class="empty-state">Loading recommendations...</div>
+            </div>
+        </div>
+
+        <div class="anomalies-section">
+            <h3>🚨 Unusual Spending Detected</h3>
+            <div id="anomalies-list" class="anomalies-list">
+                <div class="empty-state">No anomalies detected</div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 Smart Money Tips</h3>
+            <div id="tips-list" class="tips-grid"></div>
+        </div>
+    </div>
+
+    <div class="toast-custom" id="toast"></div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <script src="js/core/utils.js"></script>
+    <script src="js/core/auth.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/pages/ai-insights.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/budget-planner.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="budget-planner.html" class="nav-link active">Budget</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="ai-insights.html" class="nav-link">AI Insights</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="settings.html" class="nav-link">Settings</a>
+        </div>
+        <div class="user-pill">
+    <div class="avatar" id="user-avatar" onclick="toggleUserDropdown(event)">U</div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="dropdown-header">
+            <div class="dropdown-avatar" id="dropdownAvatar">U</div>
+            <div class="dropdown-user-info">
+                <div class="dropdown-user-name" id="dropdownUserName">User Name</div>
+                <div class="dropdown-user-email" id="dropdownUserEmail">user@example.com</div>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a href="settings.html" class="dropdown-item">
+            <span class="dropdown-icon">⚙️</span>
+            <span>Settings</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" onclick="doLogout(); return false;" class="dropdown-item dropdown-logout">
+            <span class="dropdown-icon">🚪</span>
+            <span>Logout</span>
+        </a>
+    </div>
+    <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="budget-planner.html">Budget</a>
+        <a href="goals.html">Goals</a>
+        <a href="reports.html">Reports</a>
+        <a href="ai-insights.html">AI Insights</a>
+        <a href="team.html">Team</a>
+        <a href="settings.html">Settings</a>
+        <a href="#" onclick="doLogout()">Logout</a>
+    </div>
+
+    <div class="budget-planner-page">
+        <div class="page-header">
+            <h1>📊 Budget Planner</h1>
+            <p>Plan, track, and optimize your spending</p>
+        </div>
+
+        <div class="quick-stats-row">
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-label">Total Spent</div>
+                <div class="stat-value" id="total-spent">₹0</div>
+                <div class="stat-change" id="spent-change">vs last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-label">Remaining</div>
+                <div class="stat-value" id="total-remaining">₹0</div>
+                <div class="stat-change" id="remaining-change"></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-label">Budget Used</div>
+                <div class="stat-value" id="budget-percentage">0%</div>
+                <div class="stat-change" id="percentage-status"></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💪</div>
+                <div class="stat-label">Savings Rate</div>
+                <div class="stat-value" id="savings-rate">0%</div>
+                <div class="stat-change">of income</div>
+            </div>
+        </div>
+
+        <div class="budget-main-card">
+            <h3>📅 Monthly Budget</h3>
+            <div class="budget-amount">
+                <span id="total-budget-display">₹5,000</span>
+                <button class="btn btn-sm btn-outline" style="background: rgba(255,255,255,0.2); color: white; border: none; margin-left: 1rem;" onclick="editTotalBudget()">Edit</button>
+            </div>
+            <div class="budget-progress-container">
+                <div class="budget-progress-bar" id="main-progress-bar"></div>
+            </div>
+            <div class="budget-details">
+                <span>💰 Spent: <span id="main-spent">₹0</span></span>
+                <span>✅ Remaining: <span id="main-remaining">₹0</span></span>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>📂 Category Budgets</h2>
+            <button class="btn btn-primary" onclick="openBudgetModal()">+ Add Category Budget</button>
+        </div>
+
+        <div id="category-budgets-list" class="category-budgets-grid">
+            <div class="empty-state">
+                <div class="empty-state-icon">📂</div>
+                <p>No category budgets set yet</p>
+                <button class="btn btn-primary btn-sm" onclick="openBudgetModal()">Create your first budget</button>
+            </div>
+        </div>
+
+        <div class="trends-section">
+            <h3>📈 Spending Trends</h3>
+            <div class="chart-container">
+                <canvas id="trend-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="alerts-section" id="alerts-section" style="display: none;">
+            <h3>⚠️ Budget Alerts</h3>
+            <div id="alerts-list"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="budget-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="budget-modal-title">Set Category Budget</h3>
+                <button class="modal-close" onclick="closeBudgetModal()">✕</button>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="budget-category">
+                    <option value="🍔 Food">🍔 Food</option>
+                    <option value="✈️ Travel">✈️ Travel</option>
+                    <option value="🛍️ Shopping">🛍️ Shopping</option>
+                    <option value="🏠 Housing">🏠 Housing</option>
+                    <option value="💊 Health">💊 Health</option>
+                    <option value="🎮 Entertainment">🎮 Entertainment</option>
+                    <option value="🚗 Transport">🚗 Transport</option>
+                    <option value="📚 Education">📚 Education</option>
+                    <option value="💼 Business">💼 Business</option>
+                    <option value="🔧 Utilities">🔧 Utilities</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Monthly Budget (₹)</label>
+                <input type="number" id="budget-amount" placeholder="Enter amount" min="0" step="100">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeBudgetModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveCategoryBudget()">Save Budget</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-custom" id="toast"></div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <script src="js/core/utils.js"></script>
+    <script src="js/core/auth.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/pages/budget-planner.js"></script>
+</body>
+</html>

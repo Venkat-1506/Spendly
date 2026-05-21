@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Login - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="auth-card-container">
+        <div class="split-inner">
+            <div class="left-brand">
+                <a href="index.html" class="back-home">← Back</a>
+                <div class="brand-content">
+                    <div class="brand-logo">spend<span>ly</span></div>
+                    <h1 class="brand-heading">Welcome Back!</h1>
+                    <p class="brand-description">Track your expenses, save money, and achieve your financial goals with India's most loved expense tracker.</p>
+                    
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">₹100Cr+</div>
+                            <div class="stat-label">Tracked</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">4.9★</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-card-small">
+                        <div class="demo-row"><span>🍔 Food</span><span>₹1,250</span></div>
+                        <div class="demo-row"><span>🚗 Transport</span><span>₹450</span></div>
+                        <div class="demo-row"><span>🛍️ Shopping</span><span>₹2,300</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-form">
+                <div class="form-header">
+                    <h2>Login</h2>
+                    <p>Enter your credentials to access your account</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="login-email" placeholder="Enter your email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="login-password" placeholder="Enter your password">
+                        <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link" onclick="forgotPassword()">Forgot Password?</a>
+                </div>
+
+                <button class="btn-login" onclick="doLogin()">Login →</button>
+
+                <div class="divider"><span>OR</span></div>
+
+                <div class="social-buttons">
+                    <div class="social-btn" onclick="socialLogin('google')">🍔 Google</div>
+                    <div class="social-btn" onclick="socialLogin('github')">🐙 GitHub</div>
+                </div>
+
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html">Sign up free →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+<script src="js/core/utils.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/pages/auth.js"></script>
+<script>
+    // Ensure toast is available
+    function showToast(message) {
+        const toastEl = document.getElementById('toast');
+        if (toastEl) {
+            toastEl.textContent = message;
+            toastEl.classList.add('show');
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toastEl.classList.remove('show');
+            }, 3000);
+        } else {
+            alert(message);
+        }
+    }
+    
+    // Override toast function if not available
+    if (typeof toast === 'undefined') {
+        window.toast = showToast;
+    }
+    
+    // Ensure login button works
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginBtn = document.querySelector('.btn-login');
+        if (loginBtn) {
+            loginBtn.onclick = function(e) {
+                e.preventDefault();
+                doLogin();
+            };
+        }
+        
+        // Enter key support
+        const emailInput = document.getElementById('login-email');
+        const passwordInput = document.getElementById('login-password');
+        
+        if (emailInput) {
+            emailInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') doLogin();
+            });
+        }
+        if (passwordInput) {
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') doLogin();
+            });
+        }
+    });
+</script>
+</body>
+</html>

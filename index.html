@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spendly - Smart Expense Tracker for Indians</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Additional landing page specific styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin-top:0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            overflow-x: hidden;
+        }
+
+        .hero-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 5rem 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .hero-left {
+            flex: 1;
+        }
+
+        .hero-right {
+            flex: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                flex-direction: column;
+                padding: 3rem 2rem;
+                text-align: center;
+            }
+            .hero-right {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #eef2ff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            border: 1px solid #c7d2fe;
+            margin-bottom: 2rem;
+        }
+
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #6366f1;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .badge span {
+            color: #4f46e5;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        .main-title .highlight {
+            color: #6366f1;
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-title .highlight-light {
+            color: #8b5cf6;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        @media (max-width: 1024px) {
+            .description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .cta-group {
+                justify-content: center;
+            }
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        @media (max-width: 1024px) {
+            .stats-row {
+                justify-content: center;
+            }
+            .stat-item {
+                text-align: center;
+            }
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .impact-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-header .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-header h3 {
+            color: #1e293b;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .impact-header p {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .impact-number {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            border-radius: 1.5rem;
+        }
+
+        .impact-number .currency {
+            font-size: 1.5rem;
+            color: #f59e0b;
+            font-weight: 700;
+            vertical-align: top;
+        }
+
+        .impact-number .amount {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .impact-number .amount {
+                font-size: 2.8rem;
+            }
+        }
+
+        .impact-number .sub {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        .impact-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .impact-btn:hover {
+            background: #eef2ff;
+            border-color: #6366f1;
+            color: #6366f1;
+            transform: scale(1.02);
+        }
+
+        .impact-reset {
+            background: #fef2f2;
+            border-color: #fecaca;
+            color: #dc2626;
+        }
+
+        .impact-reset:hover {
+            background: #fee2e2;
+            border-color: #f87171;
+        }
+
+        .progress-section {
+            margin-top: 1rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar-container {
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .impact-footer {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+
+        .impact-footer .goal {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .impact-footer .highlight-text {
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .scroll-indicator span {
+            color: #64748b;
+            font-size: 0.7rem;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid #6366f1;
+            border-bottom: 2px solid #6366f1;
+            transform: rotate(45deg);
+        }
+
+        .features-section {
+            background: #ffffff;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .section-title span {
+            color: #6366f1;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+            background: #eef2ff;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .steps-section {
+            padding: 5rem 2rem;
+            background: #f8fafc;
+        }
+
+        .steps-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .step h3 {
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .step p {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .testimonials-section {
+            padding: 5rem 2rem;
+            background: #ffffff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: #6366f1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card p {
+            color: #334155;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .user {
+            color: #6366f1;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .cta-bottom {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            margin: 2rem auto;
+            border-radius: 2rem;
+            max-width: 900px;
+        }
+
+        .cta-bottom h2 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-bottom p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: #6366f1;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="hero-container">
+        <div class="hero-left">
+            <div class="badge">
+                <div class="dot"></div>
+                <span>India's #1 Smart Expense Tracker</span>
+            </div>
+            <h1 class="main-title">
+                Take Control of Your <span class="highlight">Money</span><br>
+                in <span class="highlight-light">Rupees</span>
+            </h1>
+            <p class="description">Track expenses, save smarter, and achieve your financial goals with Spendly - built for Indians, by Indians. Join 50,000+ happy users.</p>
+            
+<div class="cta-group">
+    <button class="btn btn-primary" onclick="window.location.href='signup.html'">✨ Start Free Tracking</button>
+    <button class="btn btn-outline" onclick="scrollToFeatures()">🎬 Watch Demo</button>
+    <button class="btn btn-outline" onclick="window.location.href='login.html'">🔐 Login</button>
+</div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">50K+</span>
+                    <span class="stat-label">Active Users</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">₹100Cr+</span>
+                    <span class="stat-label">Money Tracked</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="49">4.9★</span>
+                    <span class="stat-label">User Rating</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="impact-card">
+                <div class="impact-header">
+                    <div class="impact-icon">🚀</div>
+                    <h3>Your Financial Impact</h3>
+                    <p>Track your progress toward financial freedom</p>
+                </div>
+                
+                <div class="impact-number">
+                    <span class="currency">₹</span>
+                    <span class="amount" id="impactAmount">0</span>
+                    <div class="sub">total impact created</div>
+                </div>
+                
+                <div class="impact-buttons">
+                    <button class="impact-btn" onclick="addImpact(500)">+ ₹500</button>
+                    <button class="impact-btn" onclick="addImpact(1000)">+ ₹1,000</button>
+                    <button class="impact-btn" onclick="addImpact(5000)">+ ₹5,000</button>
+                    <button class="impact-btn impact-reset" onclick="resetImpact()">Reset</button>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span>Progress to ₹1,00,000 goal</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="impactProgress"></div>
+                    </div>
+                </div>
+                
+                <div class="impact-footer">
+                    💪 Every rupee saved brings you closer to <span class="goal">₹1,00,000</span><br>
+                    <span class="highlight-text">You're not just tracking — you're transforming your future!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator" onclick="scrollToFeatures()">
+        <span>Discover more</span>
+        <div class="scroll-arrow"></div>
+    </div>
+
+    <section class="features-section" id="features">
+        <h2 class="section-title">Everything You Need in <span>One Place</span></h2>
+        <p class="section-sub">Simple, powerful tools that actually help you save money.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Track in Rupees</h3>
+                <p>Full Indian Rupee support with lakh/crore formatting. Track every expense in your local currency.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Smart Insights</h3>
+                <p>Beautiful charts showing exactly where your money goes each month with AI-powered recommendations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Export Reports</h3>
+                <p>Download your expenses as CSV, PDF, or Excel for tax filing and financial planning.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Financial Goals</h3>
+                <p>Set savings goals and track your progress with visual indicators and milestone celebrations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Team Collaboration</h3>
+                <p>Share expenses with family or team members, split bills, and track group budgets together.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Insights</h3>
+                <p>Get personalized spending insights and smart savings suggestions powered by AI.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps-section">
+        <h2 class="section-title">Get Started in <span>3 Simple Steps</span></h2>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Create Account</h3>
+                <p>Sign up for free in under 30 seconds</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Add Expenses</h3>
+                <p>Log your daily spending with categories</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Track & Save</h3>
+                <p>View insights and start saving money</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2 class="section-title">Loved by <span>Thousands</span> of Indians</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Best expense tracker for Indian users! The rupee support makes it so convenient."</p>
+                <div class="user">- Priya S., Mumbai</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Finally an app that understands Indian spending habits. Love the export feature!"</p>
+                <div class="user">- Rajesh K., Bangalore</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Simple, beautiful, and completely free. Helped me save ₹15,000 in 3 months!"</p>
+                <div class="user">- Anjali M., Delhi</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-bottom">
+        <h2>Ready to Take Control of Your Finances?</h2>
+        <p>Join 50,000+ Indians who are already saving with Spendly</p>
+        <button class="btn-white" onclick="window.location.href='signup.html'">Start Tracking Now →</button>
+    </div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians. Take control of your finances today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India | All amounts in Indian Rupees (₹)</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/core/utils.js"></script>
+    <script>
+        let currentImpact = 0;
+        const IMPACT_GOAL = 100000;
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addImpact(amount) {
+            currentImpact += amount;
+            updateImpactDisplay();
+        }
+
+        function resetImpact() {
+            currentImpact = 0;
+            updateImpactDisplay();
+        }
+
+        function updateImpactDisplay() {
+            const amountElement = document.getElementById('impactAmount');
+            const progressElement = document.getElementById('impactProgress');
+            const percentElement = document.getElementById('progressPercent');
+            
+            let formattedAmount = currentImpact.toLocaleString('en-IN');
+            amountElement.textContent = formattedAmount;
+            
+            const percentage = Math.min((currentImpact / IMPACT_GOAL) * 100, 100);
+            progressElement.style.width = percentage + '%';
+            percentElement.textContent = Math.floor(percentage) + '%';
+            
+            if (percentage >= 100) {
+                if (typeof toast === 'function') toast('🎉 Amazing! You\'ve reached your goal! 🎉');
+            }
+            
+            amountElement.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                amountElement.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(el => {
+                const target = el.getAttribute('data-target');
+                if (target) {
+                    let current = 0;
+                    let targetNum = parseInt(target);
+                    const timer = setInterval(() => {
+                        current += targetNum / 40;
+                        if (current >= targetNum) {
+                            if (target === '50') el.innerText = '50K+';
+                            else if (target === '100') el.innerText = '₹100Cr+';
+                            else if (target === '49') el.innerText = '4.9★';
+                            else el.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            if (target === '50') el.innerText = Math.floor(current) + 'K+';
+                            else if (target === '100') el.innerText = '₹' + Math.floor(current) + 'Cr+';
+                            else if (target === '49') el.innerText = (current / 10).toFixed(1) + '★';
+                            else el.innerText = Math.floor(current);
+                        }
+                    }, 30);
+                }
+            });
+            
+            updateImpactDisplay();
+        });
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active')) {
+                if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                    menu.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

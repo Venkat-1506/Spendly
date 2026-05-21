@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="blog.html" class="nav-link active">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="blog-page">
+        <div class="blog-hero">
+            <h1>Financial Wisdom Blog</h1>
+            <p>Tips, tricks, and insights to help you master your money</p>
+        </div>
+
+        <div class="blog-container">
+            <div class="blog-grid">
+                <article class="blog-card" onclick="window.location.href='blog-post.html?id=1'">
+                    <div class="blog-image">📊</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 15, 2025</span>
+                            <span class="blog-category">Saving Tips</span>
+                        </div>
+                        <h3>10 Smart Ways to Save Money on Your Monthly Grocery Bill</h3>
+                        <p>Discover practical strategies to cut your grocery expenses without compromising on quality...</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" onclick="window.location.href='blog-post.html?id=2'">
+                    <div class="blog-image">📈</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 10, 2025</span>
+                            <span class="blog-category">Investing</span>
+                        </div>
+                        <h3>Beginner's Guide to Mutual Funds in India</h3>
+                        <p>Everything you need to know about starting your investment journey with mutual funds...</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                            <span class="read-time">8 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" onclick="window.location.href='blog-post.html?id=3'">
+                    <div class="blog-image">💰</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 5, 2025</span>
+                            <span class="blog-category">Budgeting</span>
+                        </div>
+                        <h3>How to Create a Budget That Actually Works</h3>
+                        <p>Learn the 50/30/20 rule and other proven budgeting strategies for Indian households...</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                            <span class="read-time">6 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" onclick="window.location.href='blog-post.html?id=4'">
+                    <div class="blog-image">🎯</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">February 28, 2025</span>
+                            <span class="blog-category">Goals</span>
+                        </div>
+                        <h3>Setting SMART Financial Goals for 2025</h3>
+                        <p>How to set and achieve your financial goals using the SMART framework...</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                            <span class="read-time">4 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" onclick="window.location.href='blog-post.html?id=5'">
+                    <div class="blog-image">🏦</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">February 20, 2025</span>
+                            <span class="blog-category">Saving Tips</span>
+                        </div>
+                        <h3>Emergency Fund: Why You Need One and How to Build It</h3>
+                        <p>The importance of having an emergency fund and practical steps to build one...</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                            <span class="read-time">7 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" onclick="window.location.href='blog-post.html?id=6'">
+                    <div class="blog-image">📱</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">February 15, 2025</span>
+                            <span class="blog-category">Technology</span>
+                        </div>
+                        <h3>How AI is Changing Personal Finance Management</h3>
+                        <p>Explore how artificial intelligence is helping people make better financial decisions...</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="blog-sidebar">
+                <div class="sidebar-widget">
+                    <h4>📧 Newsletter</h4>
+                    <p>Get the latest financial tips delivered to your inbox</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn btn-primary btn-sm" style="margin-top: 0.5rem;" onclick="subscribeNewsletter()">Subscribe</button>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>🏷️ Categories</h4>
+                    <div class="category-list">
+                        <a href="#">Saving Tips (12)</a>
+                        <a href="#">Investing (8)</a>
+                        <a href="#">Budgeting (10)</a>
+                        <a href="#">Financial Goals (6)</a>
+                        <a href="#">Technology (4)</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>⭐ Popular Posts</h4>
+                    <div class="popular-posts">
+                        <div class="popular-post">
+                            <span class="popular-title">10 Ways to Save Money</span>
+                            <span class="popular-views">2.5k views</span>
+                        </div>
+                        <div class="popular-post">
+                            <span class="popular-title">Beginner's Guide to SIP</span>
+                            <span class="popular-views">1.8k views</span>
+                        </div>
+                        <div class="popular-post">
+                            <span class="popular-title">Tax Saving Tips</span>
+                            <span class="popular-views">1.5k views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians. Take control of your finances today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/core/utils.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        function subscribeNewsletter() {
+            toast('Thanks for subscribing! Check your email for confirmation.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* Reports Specific Styles */
+
+.reports-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.report-filters {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.custom-date {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.custom-date input {
+    padding: 0.625rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.chart-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.top-categories-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.top-categories-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.category-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.category-name {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.category-amount {
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.category-percent {
+    font-size: 0.75rem;
+    color: #64748b;
+    width: 60px;
+    text-align: right;
+}
+
+.insights-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.insight-card {
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
+    border-color: #6366f1;
+}
+
+.insight-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.insight-title {
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.insight-text {
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.transactions-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.transactions-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.amount-negative {
+    color: #ef4444;
+    font-weight: 600;
+}

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="budget-planner.html" class="nav-link">Budget</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="ai-insights.html" class="nav-link">AI Insights</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="settings.html" class="nav-link active">Settings</a>
+        </div>
+        <div class="user-pill">
+    <div class="avatar" id="user-avatar" onclick="toggleUserDropdown(event)">U</div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="dropdown-header">
+            <div class="dropdown-avatar" id="dropdownAvatar">U</div>
+            <div class="dropdown-user-info">
+                <div class="dropdown-user-name" id="dropdownUserName">User Name</div>
+                <div class="dropdown-user-email" id="dropdownUserEmail">user@example.com</div>
+            </div>
+        </div>
+
+        <div class="dropdown-divider"></div>
+        <a href="#" onclick="doLogout(); return false;" class="dropdown-item dropdown-logout">
+            <span class="dropdown-icon">🚪</span>
+            <span>Logout</span>
+        </a>
+    </div>
+    <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="budget-planner.html">Budget</a>
+        <a href="goals.html">Goals</a>
+        <a href="reports.html">Reports</a>
+        <a href="ai-insights.html">AI Insights</a>
+        <a href="team.html">Team</a>
+        <a href="settings.html">Settings</a>
+        <a href="#" onclick="doLogout()">Logout</a>
+    </div>
+
+    <div class="settings-page">
+        <div class="page-header">
+            <h1>⚙️ Settings</h1>
+            <p>Manage your account, preferences, and data</p>
+        </div>
+
+        <div class="settings-container">
+            <!-- Sidebar Navigation -->
+            <div class="settings-sidebar">
+                <div class="settings-nav">
+                    <button class="settings-nav-item active" data-tab="profile">
+                        <span class="nav-icon">👤</span> Profile
+                    </button>
+                    <button class="settings-nav-item" data-tab="preferences">
+                        <span class="nav-icon">🎨</span> Preferences
+                    </button>
+                    <button class="settings-nav-item" data-tab="notifications">
+                        <span class="nav-icon">🔔</span> Notifications
+                    </button>
+                    <button class="settings-nav-item" data-tab="security">
+                        <span class="nav-icon">🔒</span> Security
+                    </button>
+                    <button class="settings-nav-item" data-tab="data">
+                        <span class="nav-icon">📊</span> Data Management
+                    </button>
+                    <button class="settings-nav-item" data-tab="billing">
+                        <span class="nav-icon">💳</span> Billing
+                    </button>
+                    <button class="settings-nav-item" data-tab="help">
+                        <span class="nav-icon">❓</span> Help & Support
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="settings-content">
+                <!-- Profile Tab -->
+                <div class="settings-tab active" id="profile-tab">
+                    <div class="tab-header">
+                        <h2>Profile Information</h2>
+                        <p>Update your personal information and how others see you</p>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>📸 Profile Picture</h3>
+                        <div class="avatar-upload">
+                            <div class="avatar-preview" id="avatar-preview">👤</div>
+                            <div>
+                                <button class="btn btn-outline btn-sm" onclick="uploadAvatar()">Upload New Picture</button>
+                                <p style="font-size: 0.7rem; color: #64748b; margin-top: 0.5rem;">Recommended: Square image, at least 200x200px</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>📝 Personal Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="profile-name" placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="profile-email" placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="profile-phone" placeholder="+91 XXXXXXXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label>Date of Birth</label>
+                                <input type="date" id="profile-dob">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Preferences Tab -->
+                <div class="settings-tab" id="preferences-tab">
+                    <div class="tab-header">
+                        <h2>App Preferences</h2>
+                        <p>Customize your Spendly experience</p>
+                    </div>
+                    <div class="form-card">
+                        <h3>🎨 Display Settings</h3>
+                        <div class="form-group">
+                            <label>Theme</label>
+                            <select id="theme-pref">
+                                <option value="light">☀️ Light Mode</option>
+                                <option value="dark">🌙 Dark Mode</option>
+                                <option value="system">🖥️ System Default</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <select id="currency-pref">
+                                <option value="INR">₹ Indian Rupee (INR)</option>
+                                <option value="USD">$ US Dollar (USD)</option>
+                                <option value="EUR">€ Euro (EUR)</option>
+                                <option value="GBP">£ British Pound (GBP)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date Format</label>
+                            <select id="date-format">
+                                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Default Dashboard View</label>
+                            <select id="default-view">
+                                <option value="summary">📊 Summary View</option>
+                                <option value="detailed">📋 Detailed View</option>
+                                <option value="charts">📈 Charts View</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>📱 Language & Region</h3>
+                        <div class="form-group">
+                            <label>Language</label>
+                            <select id="language-pref">
+                                <option value="en">English</option>
+                                <option value="hi">हिन्दी (Hindi)</option>
+                                <option value="ta">தமிழ் (Tamil)</option>
+                                <option value="te">తెలుగు (Telugu)</option>
+                                <option value="bn">বাংলা (Bengali)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Number Format</label>
+                            <select id="number-format">
+                                <option value="lakh">Indian (Lakh/Crore)</option>
+                                <option value="million">International (Million/Billion)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="savePreferences()">Save Preferences</button>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="settings-tab" id="notifications-tab">
+                    <div class="tab-header">
+                        <h2>Notification Settings</h2>
+                        <p>Choose what updates you want to receive</p>
+                    </div>
+                    <div class="form-card">
+                        <h3>📧 Email Notifications</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Weekly Spending Summary</h4>
+                                <p>Get a weekly report of your expenses</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="email-summary" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Budget Alerts</h4>
+                                <p>Notify when you're close to budget limits</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="budget-alerts" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Goal Milestones</h4>
+                                <p>Celebrate when you reach savings goals</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="goal-alerts" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>📱 Push Notifications</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>New Expense Reminder</h4>
+                                <p>Daily reminder to log your expenses</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="push-reminder">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Unusual Spending Alert</h4>
+                                <p>Get notified about unusual transactions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="push-unusual" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>📢 Marketing Communications</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Product Updates & Offers</h4>
+                                <p>Receive news about new features and promotions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="marketing-emails">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="saveNotifications()">Save Notification Settings</button>
+                </div>
+
+                <!-- Security Tab -->
+                <div class="settings-tab" id="security-tab">
+                    <div class="tab-header">
+                        <h2>Security Settings</h2>
+                        <p>Protect your account with these security features</p>
+                    </div>
+                    <div class="form-card">
+                        <h3>🔐 Change Password</h3>
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" id="current-password" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" id="new-password" placeholder="Enter new password">
+                            <div class="password-strength">
+                                <div id="strength-bar" style="height: 4px; background: #e2e8f0; border-radius: 2px; overflow: hidden;">
+                                    <div id="strength-fill" style="width: 0%; height: 100%; transition: width 0.3s;"></div>
+                                </div>
+                                <span id="strength-text" style="font-size: 0.65rem; color: #64748b;">Password strength</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm New Password</label>
+                            <input type="password" id="confirm-password" placeholder="Confirm new password">
+                        </div>
+                        <button class="btn btn-primary" onclick="changePassword()">Update Password</button>
+                    </div>
+                    <div class="form-card">
+                        <h3>🔑 Two-Factor Authentication</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Enable 2FA</h4>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="twofa-enabled">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div id="twofa-setup" style="display: none; margin-top: 1rem; padding: 1rem; background: #eef2ff; border-radius: 0.75rem;">
+                            <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">📱 Scan this QR code with your authenticator app:</p>
+                            <div style="text-align: center; padding: 1rem; background: white; border-radius: 0.5rem;">
+                                <code style="font-family: monospace;">SPEND:ABC123XYZ789</code>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="margin-top: 0.5rem;" onclick="verify2FA()">Verify & Enable</button>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>💻 Active Sessions</h3>
+                        <div class="sessions-list" id="sessions-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <span class="session-icon">💻</span>
+                                    <div>
+                                        <div class="session-device">Chrome on Windows</div>
+                                        <div class="session-location">Bangalore, India</div>
+                                    </div>
+                                </div>
+                                <div class="session-time">Current session</div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <span class="session-icon">📱</span>
+                                    <div>
+                                        <div class="session-device">Mobile App</div>
+                                        <div class="session-location">Mumbai, India</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-ghost" onclick="revokeSession(this)">Revoke</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm" style="margin-top: 0.5rem;" onclick="revokeAllSessions()">Revoke All Other Sessions</button>
+                    </div>
+                </div>
+
+                <!-- Data Management Tab -->
+                <div class="settings-tab" id="data-tab">
+                    <div class="tab-header">
+                        <h2>Data Management</h2>
+                        <p>Export, import, or delete your data</p>
+                    </div>
+                    <div class="form-card">
+                        <h3>📤 Export Your Data</h3>
+                        <div class="export-options">
+                            <div class="export-card" onclick="exportData('csv')">
+                                <div class="export-icon">📊</div>
+                                <div class="export-title">CSV Format</div>
+                                <div class="export-desc">Excel compatible</div>
+                            </div>
+                            <div class="export-card" onclick="exportData('json')">
+                                <div class="export-icon">🔧</div>
+                                <div class="export-title">JSON Format</div>
+                                <div class="export-desc">Developer friendly</div>
+                            </div>
+                            <div class="export-card" onclick="exportData('pdf')">
+                                <div class="export-icon">📄</div>
+                                <div class="export-title">PDF Report</div>
+                                <div class="export-desc">Printable summary</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>📥 Import Data</h3>
+                        <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 1rem;">Import expenses from CSV files (Date, Category, Note, Amount)</p>
+                        <input type="file" id="import-file" accept=".csv,.json" style="margin-bottom: 1rem;">
+                        <button class="btn btn-primary" onclick="importData()">Import Data</button>
+                    </div>
+                    <div class="form-card">
+                        <h3>💾 Backup & Restore</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Automatic Backup</h4>
+                                <p>Automatically backup your data weekly</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="auto-backup" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <button class="btn btn-outline" style="margin-top: 1rem;" onclick="createBackup()">Create Backup Now</button>
+                    </div>
+                    <div class="danger-zone">
+                        <h3>⚠️ Danger Zone</h3>
+                        <p>Once you delete your data, it cannot be recovered. Please be certain.</p>
+                        <div class="danger-buttons">
+                            <button class="btn btn-danger" onclick="deleteAllExpenses()">Delete All Expenses</button>
+                            <button class="btn btn-danger" onclick="deleteAccount()">Delete Entire Account</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billing Tab -->
+                <div class="settings-tab" id="billing-tab">
+                    <div class="tab-header">
+                        <h2>Subscription & Billing</h2>
+                        <p>Manage your plan and payment methods</p>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-badge" id="plan-badge">Current Plan</span>
+                        <div class="plan-name" id="plan-name">Free Plan</div>
+                        <div class="plan-price" id="plan-price">₹0 / month</div>
+                        <div class="plan-features" id="plan-features">
+                            <div class="plan-feature">100 transactions per month</div>
+                            <div class="plan-feature">Basic expense tracking</div>
+                            <div class="plan-feature">CSV exports</div>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='pricing.html'">Upgrade Plan →</button>
+                    </div>
+                    <div class="form-card">
+                        <h3>💳 Payment Methods</h3>
+                        <div class="payment-methods" id="payment-methods">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>💳 Visa ending in 4242</h4>
+                                    <p>Expires 12/2026</p>
+                                </div>
+                                <button class="btn btn-sm btn-ghost" onclick="removePaymentMethod(this)">Remove</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="addPaymentMethod()">+ Add Payment Method</button>
+                    </div>
+                    <div class="form-card">
+                        <h3>📄 Billing History</h3>
+                        <div class="table-wrap">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr><th>Date</th><th>Description</th><th>Amount</th><th>Status</th><th>Invoice</th></tr>
+                                </thead>
+                                <tbody id="billing-history">
+                                    <tr>
+                                        <td>Mar 1, 2025</td>
+                                        <td>Pro Plan - Monthly</td>
+                                        <td class="amount-negative">₹499</td>
+                                        <td><span class="badge badge-settled">Paid</span></td>
+                                        <td><a href="#" onclick="downloadInvoice()">📄 PDF</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Help & Support Tab -->
+                <div class="settings-tab" id="help-tab">
+                    <div class="tab-header">
+                        <h2>Help & Support</h2>
+                        <p>Get help and contact our support team</p>
+                    </div>
+                    <div class="form-card">
+                        <h3>📚 Quick Help</h3>
+                        <div class="faq-list">
+                            <div class="setting-item" onclick="toggleFaq(this)">
+                                <div class="setting-info">
+                                    <h4>How do I add an expense?</h4>
+                                    <p>Click the + button on dashboard or use the "Add Expense" button</p>
+                                </div>
+                                <span>▼</span>
+                            </div>
+                            <div class="setting-item" onclick="toggleFaq(this)">
+                                <div class="setting-info">
+                                    <h4>How do I set a budget?</h4>
+                                    <p>Go to Budget page and click "Add Category Budget"</p>
+                                </div>
+                                <span>▼</span>
+                            </div>
+                            <div class="setting-item" onclick="toggleFaq(this)">
+                                <div class="setting-info">
+                                    <h4>How do I export my data?</h4>
+                                    <p>Go to Data Management tab and choose your export format</p>
+                                </div>
+                                <span>▼</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <h3>📧 Contact Support</h3>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" id="support-subject" placeholder="What's your issue?">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="support-message" rows="4" placeholder="Describe your issue in detail..." style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 0.75rem; font-family: inherit;"></textarea>
+                        </div>
+                        <button class="btn btn-primary" onclick="sendSupportTicket()">Send Message</button>
+                    </div>
+                    <div class="form-card">
+                        <h3>📱 System Information</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>App Version</h4>
+                                <p>Spendly v2.0.0</p>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Last Data Sync</h4>
+                                <p id="last-sync">Just now</p>
+                            </div>
+                            <button class="btn btn-sm btn-ghost" onclick="syncData()">Sync Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-custom" id="toast"></div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <script src="js/core/utils.js"></script>
+    <script src="js/core/auth.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/pages/settings.js"></script>
+    
+    <script>
+        // Additional initialization to ensure tabs work
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tab switching
+            const navItems = document.querySelectorAll('.settings-nav-item');
+            const tabs = document.querySelectorAll('.settings-tab');
+            
+            console.log('Settings page loaded - Found tabs:', tabs.length);
+            console.log('Settings page loaded - Found nav items:', navItems.length);
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    console.log('Tab clicked:', tabId);
+                    
+                    // Remove active class from all nav items and tabs
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabs.forEach(tab => tab.classList.remove('active'));
+                    
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+                    
+                    // Add active class to corresponding tab
+                    const targetTab = document.getElementById(tabId + '-tab');
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        console.log('Activated tab:', tabId + '-tab');
+                    } else {
+                        console.error('Tab not found:', tabId + '-tab');
+                    }
+                });
+            });
+        });
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+        
+        function doLogout() {
+            localStorage.removeItem('spendly_user');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

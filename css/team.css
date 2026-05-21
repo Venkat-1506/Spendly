@@ -1,0 +1,261 @@
+/* Team Collaboration Specific Styles */
+
+.team-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.member-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
+    border-color: #6366f1;
+}
+
+.member-avatar-large {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+}
+
+.member-name {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.member-email {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    text-align: center;
+    display: inline-block;
+    width: fit-content;
+    margin: 0.5rem auto;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.role-admin {
+    background: #eef2ff;
+    color: #6366f1;
+}
+
+.role-member {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.member-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 1rem;
+}
+
+.member-stat {
+    text-align: center;
+}
+
+.member-stat-value {
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.member-stat-label {
+    font-size: 0.6rem;
+    color: #64748b;
+}
+
+.member-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.expenses-section {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.expenses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.expenses-header h3 {
+    font-size: 1.125rem;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-card {
+    background: #f8fafc;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.summary-card .summary-label {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.summary-card .summary-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+.badge-pending {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.badge-settled {
+    background: #f0fdf4;
+    color: #10b981;
+}
+
+.split-summary {
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.split-summary h4 {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.split-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.split-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+/* Add to team.css */
+.team-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.expenses-section {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-card {
+    background: var(--gray-bg);
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.split-summary {
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.split-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.split-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-members-grid {
+        grid-template-columns: 1fr;
+    }
+}

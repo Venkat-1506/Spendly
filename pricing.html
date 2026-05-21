@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pricing.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link active">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="pricing-page">
+        <div class="pricing-hero">
+            <h1>Simple, Transparent Pricing</h1>
+            <p>Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+        </div>
+
+        <div class="pricing-toggle">
+            <span class="toggle-label monthly active">Monthly</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="billing-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label yearly">Yearly <span class="save-badge">Save 20%</span></span>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-badge">Free Forever</div>
+                <h2>Free</h2>
+                <div class="price">
+                    <span class="currency">₹</span>
+                    <span class="amount" data-monthly="0" data-yearly="0">0</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="plan-desc">Perfect for individuals starting their financial journey</p>
+                <button class="btn btn-outline" onclick="window.location.href='signup.html'">Get Started →</button>
+                <div class="features-list">
+                    <div class="feature">Up to 100 transactions/month</div>
+                    <div class="feature">Basic expense tracking</div>
+                    <div class="feature">Simple reports (CSV)</div>
+                    <div class="feature">3 budget categories</div>
+                    <div class="feature">1 financial goal</div>
+                    <div class="feature disabled">AI insights</div>
+                    <div class="feature disabled">Team collaboration</div>
+                    <div class="feature disabled">Receipt uploads</div>
+                    <div class="feature disabled">Priority support</div>
+                </div>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge">🔥 Most Popular</div>
+                <div class="plan-badge">Best Value</div>
+                <h2>Pro</h2>
+                <div class="price">
+                    <span class="currency">₹</span>
+                    <span class="amount" data-monthly="499" data-yearly="399">499</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="plan-desc">For power users who want complete control</p>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html?plan=pro'">Start 14-Day Trial →</button>
+                <div class="features-list">
+                    <div class="feature">Unlimited transactions</div>
+                    <div class="feature">Advanced expense tracking</div>
+                    <div class="feature">Advanced reports (PDF, Excel)</div>
+                    <div class="feature">Unlimited budget categories</div>
+                    <div class="feature">Unlimited financial goals</div>
+                    <div class="feature">AI-powered insights</div>
+                    <div class="feature">Receipt upload (50/month)</div>
+                    <div class="feature">Priority support</div>
+                    <div class="feature">Data export</div>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-badge">Best for Teams</div>
+                <h2>Business</h2>
+                <div class="price">
+                    <span class="currency">₹</span>
+                    <span class="amount" data-monthly="999" data-yearly="799">999</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="plan-desc">For teams and businesses managing finances together</p>
+                <button class="btn btn-outline" onclick="window.location.href='contact.html'">Contact Sales →</button>
+                <div class="features-list">
+                    <div class="feature">Everything in Pro</div>
+                    <div class="feature">Up to 10 team members</div>
+                    <div class="feature">Bill splitting</div>
+                    <div class="feature">Role-based access</div>
+                    <div class="feature">Unlimited receipt uploads</div>
+                    <div class="feature">API access</div>
+                    <div class="feature">Dedicated account manager</div>
+                    <div class="feature">99.9% uptime SLA</div>
+                    <div class="feature">Custom integrations</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trust-badge">
+            <p>
+                <span>🔒 256-bit SSL Encryption</span>
+                <span>💳 Secure Payments</span>
+                <span>🔄 Cancel Anytime</span>
+                <span>⭐ 4.9/5 from 5,000+ users</span>
+            </p>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item"><h3>Can I switch plans anytime?</h3><p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately and we'll prorate any differences.</p></div>
+                <div class="faq-item"><h3>Is there a free trial?</h3><p>All paid plans come with a 14-day free trial. No credit card required to start. Cancel anytime during the trial.</p></div>
+                <div class="faq-item"><h3>What payment methods do you accept?</h3><p>We accept all major credit cards, UPI, NetBanking, and wallets including PayTM, Google Pay, and PhonePe.</p></div>
+                <div class="faq-item"><h3>Can I cancel my subscription?</h3><p>Yes, you can cancel anytime from your account settings. No hidden fees, no long-term contracts.</p></div>
+                <div class="faq-item"><h3>Is my data secure?</h3><p>Absolutely! We use bank-level 256-bit encryption to protect your data. Your privacy is our top priority.</p></div>
+                <div class="faq-item"><h3>Do you offer refunds?</h3><p>We offer a 30-day money-back guarantee for all paid plans. If you're not satisfied, we'll refund your full payment.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians. Take control of your finances today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/core/utils.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('billing-toggle');
+            if (toggle) {
+                toggle.addEventListener('change', (e) => {
+                    const isYearly = e.target.checked;
+                    const monthlyLabels = document.querySelectorAll('.toggle-label');
+                    monthlyLabels.forEach(label => label.classList.remove('active'));
+                    if (isYearly) {
+                        document.querySelector('.toggle-label.yearly')?.classList.add('active');
+                    } else {
+                        document.querySelector('.toggle-label.monthly')?.classList.add('active');
+                    }
+                    
+                    document.querySelectorAll('.price .amount').forEach(el => {
+                        const monthly = el.dataset.monthly;
+                        const yearly = el.dataset.yearly;
+                        if (isYearly && yearly) {
+                            el.textContent = yearly;
+                        } else {
+                            el.textContent = monthly;
+                        }
+                    });
+                });
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active')) {
+                if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                    menu.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

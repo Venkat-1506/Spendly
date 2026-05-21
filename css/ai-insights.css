@@ -1,0 +1,253 @@
+/* AI Insights Specific Styles */
+
+.ai-insights-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.ai-score-card {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.ai-score-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.ai-score-value {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.ai-score-message {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.insight-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
+    border-color: #6366f1;
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.insight-icon {
+    font-size: 2rem;
+}
+
+.insight-title {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.insight-content {
+    font-size: 0.875rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.insight-badge {
+    display: inline-block;
+    background: #eef2ff;
+    color: #6366f1;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+}
+
+.recommendations-section {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.recommendations-section h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.recommendations-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1rem;
+}
+
+.recommendation-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.recommendation-item:hover {
+    background: #eef2ff;
+    transform: translateX(5px);
+}
+
+.rec-icon {
+    font-size: 1.5rem;
+}
+
+.rec-content {
+    flex: 1;
+}
+
+.rec-title {
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.rec-description {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.rec-savings {
+    font-size: 0.7rem;
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.anomalies-section {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.anomalies-section h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.anomalies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.anomaly-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fef2f2;
+    border-radius: 1rem;
+    border-left: 4px solid #ef4444;
+}
+
+.anomaly-icon {
+    font-size: 1.5rem;
+}
+
+.anomaly-content {
+    flex: 1;
+}
+
+.anomaly-title {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #dc2626;
+}
+
+.anomaly-details {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+.tips-section {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.tips-section h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #92400e;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.5);
+    border-radius: 0.75rem;
+}
+
+.tip-icon {
+    font-size: 1.25rem;
+}
+
+.tip-text {
+    font-size: 0.75rem;
+    color: #78350f;
+}
+/* Add to ai-insights.css */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+}

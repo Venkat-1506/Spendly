@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog-post.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="blog.html" class="nav-link active">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="blog-post-page">
+        <div class="blog-post-container">
+            <div class="blog-post-header">
+                <div class="post-meta">
+                    <span class="post-date">March 15, 2025</span>
+                    <span class="post-category">Saving Tips</span>
+                    <span class="post-read-time">5 min read</span>
+                </div>
+                <h1>10 Smart Ways to Save Money on Your Monthly Grocery Bill</h1>
+                <div class="post-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <div class="author-name">Priya Sharma</div>
+                        <div class="author-title">Financial Expert at Spendly</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-post-content">
+                <img src="https://placehold.co/800x400/6366f1/white?text=Grocery+Saving+Tips" alt="Grocery Saving Tips" class="post-featured-image">
+                
+                <p>Grocery shopping is one of the biggest monthly expenses for Indian households. With rising inflation, it's becoming increasingly important to find ways to save without compromising on quality. Here are 10 practical tips to help you cut your grocery bill significantly.</p>
+
+                <h2>1. Plan Your Meals in Advance</h2>
+                <p>Meal planning is the cornerstone of grocery savings. Take 30 minutes each week to plan your meals, check what you already have, and create a shopping list. This prevents impulse purchases and reduces food waste.</p>
+
+                <h2>2. Shop with a List and Stick to It</h2>
+                <p>Never go grocery shopping without a list. Studies show that shoppers who use lists spend 23% less than those who don't. Your smartphone is perfect for this - use the notes app or a dedicated grocery list app.</p>
+
+                <h2>3. Buy in Bulk for Non-Perishables</h2>
+                <p>Items like rice, dal, spices, and oil can be bought in bulk at wholesale stores or during sales. This can save you 15-20% compared to buying smaller quantities.</p>
+
+                <h2>4. Compare Prices Across Stores</h2>
+                <p>Different stores have different prices for the same items. Use apps like BigBasket, Amazon Fresh, and local kirana stores to compare prices before buying. Sometimes local stores offer better deals on fresh produce.</p>
+
+                <h2>5. Look for Discounts and Cashback Offers</h2>
+                <p>Credit cards, UPI apps, and store loyalty programs often offer cashback and discounts. Combine these offers for maximum savings. For example, using specific credit cards on certain days can give you up to 10% cashback.</p>
+
+                <h2>6. Avoid Shopping When Hungry</h2>
+                <p>This might sound silly, but shopping on an empty stomach leads to impulse purchases of snacks and ready-to-eat items. Always eat before you go grocery shopping.</p>
+
+                <h2>7. Buy Seasonal Fruits and Vegetables</h2>
+                <p>Seasonal produce is not only cheaper but also fresher and more nutritious. For example, mangoes in summer and oranges in winter are significantly cheaper than off-season.</p>
+
+                <h2>8. Consider Store Brands</h2>
+                <p>Many stores have their own brands that are 20-30% cheaper than national brands but offer similar quality. Try them for basic items like flour, sugar, and cleaning supplies.</p>
+
+                <h2>9. Reduce Meat Consumption</h2>
+                <p>Meat is often one of the most expensive items on the grocery list. Try incorporating more vegetarian meals into your week. Even one meat-free day per week can save you thousands annually.</p>
+
+                <h2>10. Track Your Spending with Spendly</h2>
+                <p>Use Spendly to track your grocery expenses. Our app helps you see exactly how much you're spending on groceries each month and provides insights on where you can cut back.</p>
+
+                <div class="tips-summary">
+                    <h3>Quick Savings Calculator</h3>
+                    <p>If you spend ₹8,000 on groceries monthly, implementing these tips could save you:</p>
+                    <ul>
+                        <li>10% savings = ₹800/month = ₹9,600/year</li>
+                        <li>20% savings = ₹1,600/month = ₹19,200/year</li>
+                        <li>30% savings = ₹2,400/month = ₹28,800/year</li>
+                    </ul>
+                </div>
+
+                <div class="post-share">
+                    <span>Share this article:</span>
+                    <button class="share-btn" onclick="sharePost('facebook')">📘 Facebook</button>
+                    <button class="share-btn" onclick="sharePost('twitter')">🐦 Twitter</button>
+                    <button class="share-btn" onclick="sharePost('linkedin')">💼 LinkedIn</button>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h3>Comments (3)</h3>
+                <div class="comment">
+                    <div class="comment-avatar">RK</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Rajesh Kumar</div>
+                        <div class="comment-date">March 16, 2025</div>
+                        <p>Great tips! I started meal planning and already saved ₹2,000 this month. Thanks Spendly!</p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-avatar">SN</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Sunita Nair</div>
+                        <div class="comment-date">March 16, 2025</div>
+                        <p>The tip about shopping with a list really works. I used to overspend by ₹1,500 every time!</p>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <h4>Leave a Comment</h4>
+                    <textarea placeholder="Write your comment..." rows="3"></textarea>
+                    <button class="btn btn-primary" onclick="postComment()">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians. Take control of your finances today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/core/utils.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        function sharePost(platform) {
+            toast(`Shared on ${platform}!`);
+        }
+
+        function postComment() {
+            toast('Comment posted successfully!');
+        }
+    </script>
+</body>
+</html>

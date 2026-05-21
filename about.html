@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="about-page">
+        <div class="about-hero">
+            <h1>Our Mission</h1>
+            <p>To help every Indian take control of their finances and achieve financial freedom</p>
+        </div>
+
+        <div class="stats-showcase">
+            <div class="stat-item">
+                <span class="stat-number">2024</span>
+                <span class="stat-label">Year Founded</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Active Users</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">₹100Cr+</span>
+                <span class="stat-label">Money Tracked</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4.9★</span>
+                <span class="stat-label">User Rating</span>
+            </div>
+        </div>
+
+        <div class="who-section">
+            <div class="who-content">
+                <h2>Who We Are</h2>
+                <p>Spendly was founded in 2024 with a simple mission: make expense tracking effortless for Indians. We understand the unique financial habits of Indian households - from monthly budgets to festival expenses, from UPI payments to cash transactions.</p>
+                <p>Today, we're proud to serve over 50,000+ users across India, helping them save crores of rupees through smart expense tracking.</p>
+            </div>
+            <div class="who-image">
+                <span class="emoji-big">🇮🇳</span>
+                <h3>Proudly Made in India</h3>
+                <p>Built for Indians, by Indians</p>
+            </div>
+        </div>
+
+        <div class="why-section">
+            <h2>Why Choose Spendly?</h2>
+            <div class="features-grid-why">
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>100% Free</h3>
+                    <p>No hidden charges, no credit card required. Get started today.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🇮🇳</div>
+                    <h3>Indian Rupee Support</h3>
+                    <p>Lakh/Crore formatting designed specifically for Indian users.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays on your device. We never sell your information.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🎨</div>
+                    <h3>Beautiful Interface</h3>
+                    <p>Designed with Indian users in mind. Simple, clean, and intuitive.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🤖</div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Smart savings suggestions based on your spending patterns.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Track expenses on the go with our responsive design.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="values-section">
+            <h2>Our Values</h2>
+            <div class="values-grid-4">
+                <div class="value-card-modern">
+                    <div class="value-emoji">🔒</div>
+                    <h3>Privacy</h3>
+                    <p>Your financial data never leaves your device unless you export it. We take your privacy seriously.</p>
+                </div>
+                <div class="value-card-modern">
+                    <div class="value-emoji">💡</div>
+                    <h3>Simplicity</h3>
+                    <p>No complicated features - just what you need to track expenses and save money.</p>
+                </div>
+                <div class="value-card-modern">
+                    <div class="value-emoji">🌟</div>
+                    <h3>Excellence</h3>
+                    <p>Constantly improving based on user feedback. Your voice shapes our product.</p>
+                </div>
+                <div class="value-card-modern">
+                    <div class="value-emoji">🇮🇳</div>
+                    <h3>India First</h3>
+                    <p>Built specifically for Indian users with local currency, payment methods, and habits.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-section">
+            <h2>Our Journey</h2>
+            <div class="timeline-modern">
+                <div class="timeline-node">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-event">🚀 Founded</div>
+                    <div class="timeline-desc">Spendly launched with a vision to simplify expense tracking</div>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-event">📈 50K Users</div>
+                    <div class="timeline-desc">Reached 50,000+ users across India</div>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-event">🤖 AI Launch</div>
+                    <div class="timeline-desc">Launched AI-powered insights and team collaboration</div>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-event">🎯 The Future</div>
+                    <div class="timeline-desc">Aiming for 1 million happy users!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">👨‍💻</div>
+                    <div class="member-name">Rajesh Sharma</div>
+                    <div class="member-role">Founder & CEO</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩‍💻</div>
+                    <div class="member-name">Priya Mehta</div>
+                    <div class="member-role">CTO</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👨‍🎨</div>
+                    <div class="member-name">Amit Kumar</div>
+                    <div class="member-role">Lead Designer</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩‍🔧</div>
+                    <div class="member-name">Neha Gupta</div>
+                    <div class="member-role">Product Manager</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-about">
+            <h2>Join Our Journey</h2>
+            <p>Be part of India's fastest-growing expense tracking community</p>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='signup.html'">Start Tracking Now →</button>
+        </div>
+    </div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians. Take control of your finances today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/core/utils.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active')) {
+                if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                    menu.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

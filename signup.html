@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sign Up - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="auth-card-container">
+        <div class="split-inner">
+            <div class="left-brand">
+                <a href="index.html" class="back-home">← Back</a>
+                <div class="brand-content">
+                    <div class="brand-logo">spend<span>ly</span></div>
+                    <h1 class="brand-heading">Join Spendly Today!</h1>
+                    <p class="brand-description">Start your journey towards financial freedom with India's most trusted expense tracker.</p>
+                    <div class="features-list"><div class="feature-item">Track expenses in ₹ (Lakh/Crore format)</div><div class="feature-item">AI-powered spending insights</div><div class="feature-item">Set and achieve financial goals</div><div class="feature-item">Export reports for tax filing</div></div>
+                </div>
+            </div>
+
+            <div class="right-form">
+                <div class="form-header"><h2>Create Account</h2><p>Start tracking your expenses in seconds</p></div>
+                <div class="form-group"><label>Full Name</label><div class="input-wrapper"><span class="input-icon">👤</span><input type="text" id="signup-name" placeholder="Enter your full name"></div></div>
+                <div class="form-group"><label>Email Address</label><div class="input-wrapper"><span class="input-icon">📧</span><input type="email" id="signup-email" placeholder="Enter your email"></div></div>
+                <div class="form-group"><label>Password</label><div class="input-wrapper"><span class="input-icon">🔒</span><input type="password" id="signup-password" placeholder="Create a password"><button type="button" class="password-toggle" onclick="toggleSignupPassword()">👁️</button></div><div class="password-strength"><div class="strength-bar" id="strength-bar"></div></div><div class="strength-text" id="strength-text"></div></div>
+                <div class="form-group"><label>Confirm Password</label><div class="input-wrapper"><span class="input-icon">✓</span><input type="password" id="signup-confirm" placeholder="Confirm your password"><button type="button" class="password-toggle" onclick="toggleSignupConfirm()">👁️</button></div></div>
+                <div class="checkbox-group"><label class="checkbox-label"><input type="checkbox" id="terms-checkbox"> I agree to the <a href="terms.html" class="terms-link">Terms of Service</a> and <a href="privacy.html" class="terms-link">Privacy Policy</a></label></div>
+                <button class="btn-signup" id="signup-btn">Create Free Account →</button>
+                <div class="divider"><span>OR</span></div>
+                <div class="social-buttons"><div class="social-btn" id="google-signup">🍔 Google</div><div class="social-btn" id="github-signup">🐙 GitHub</div></div>
+                <div class="login-link">Already have an account? <a href="login.html">Login →</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+<script src="js/core/utils.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/pages/auth.js"></script>
+<script>
+    // Ensure toast is available
+    function showToast(message) {
+        const toastEl = document.getElementById('toast');
+        if (toastEl) {
+            toastEl.textContent = message;
+            toastEl.classList.add('show');
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toastEl.classList.remove('show');
+            }, 3000);
+        } else {
+            alert(message);
+        }
+    }
+    
+    // Override toast function if not available
+    if (typeof toast === 'undefined') {
+        window.toast = showToast;
+    }
+    
+    // Ensure signup button works
+    document.addEventListener('DOMContentLoaded', function() {
+        const signupBtn = document.getElementById('signup-btn');
+        if (signupBtn) {
+            signupBtn.onclick = function(e) {
+                e.preventDefault();
+                doSignup();
+            };
+        }
+        
+        // Enter key support for all fields
+        const inputs = ['signup-name', 'signup-email', 'signup-password', 'signup-confirm'];
+        inputs.forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') doSignup();
+                });
+            }
+        });
+    });
+    
+    // Password toggle functions
+    function toggleSignupPassword() {
+        const pwd = document.getElementById('signup-password');
+        const toggle = document.querySelector('#signup-password + .password-toggle');
+        if (pwd && toggle) {
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                toggle.innerHTML = '🙈';
+            } else {
+                pwd.type = 'password';
+                toggle.innerHTML = '👁️';
+            }
+        }
+    }
+    
+    function toggleSignupConfirm() {
+        const confirm = document.getElementById('signup-confirm');
+        const toggle = document.querySelector('#signup-confirm + .password-toggle');
+        if (confirm && toggle) {
+            if (confirm.type === 'password') {
+                confirm.type = 'text';
+                toggle.innerHTML = '🙈';
+            } else {
+                confirm.type = 'password';
+                toggle.innerHTML = '👁️';
+            }
+        }
+    }
+    
+    // Make functions global
+    window.toggleSignupPassword = toggleSignupPassword;
+    window.toggleSignupConfirm = toggleSignupConfirm;
+</script>
+</body>
+</html>

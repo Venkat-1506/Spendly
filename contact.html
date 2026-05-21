@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Spendly SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo" onclick="window.location.href='index.html'">spend<span>ly</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+            <button class="btn btn-ghost btn-sm" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="contact-page">
+        <div class="contact-hero">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you. Send us a message and we'll respond within 24 hours</p>
+        </div>
+
+        <div class="contact-container-new">
+            <div class="contact-info-grid">
+                <div class="info-card-new">
+                    <div class="info-icon-new">📍</div>
+                    <h3>Visit Us</h3>
+                    <p>Bangalore, Karnataka</p>
+                    <p>India - 560001</p>
+                    <button class="info-btn" onclick="getDirections()">Get Directions →</button>
+                </div>
+                <div class="info-card-new">
+                    <div class="info-icon-new">📧</div>
+                    <h3>Email Us</h3>
+                    <p>support@spendly.com</p>
+                    <p>sales@spendly.com</p>
+                    <button class="info-btn" onclick="copyEmail('support@spendly.com')">Copy Email →</button>
+                </div>
+                <div class="info-card-new">
+                    <div class="info-icon-new">📞</div>
+                    <h3>Call Us</h3>
+                    <p>+91 98765 43210</p>
+                    <p>Mon-Fri, 9AM-6PM</p>
+                    <button class="info-btn" onclick="makeCall()">Call Now →</button>
+                </div>
+                <div class="info-card-new">
+                    <div class="info-icon-new">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Available 24/7</p>
+                    <p>For all users</p>
+                    <button class="info-btn" onclick="startLiveChat()">Start Chat →</button>
+                </div>
+            </div>
+
+            <div class="form-map-section">
+                <div class="contact-form-new">
+                    <h2>Send us a Message</h2>
+                    <p class="form-sub">Fill out the form and we'll get back to you within 24 hours</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group-new">
+                            <label>Full Name *</label>
+                            <input type="text" id="contact-name" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group-new">
+                            <label>Email Address *</label>
+                            <input type="email" id="contact-email" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group-new">
+                            <label>Phone Number</label>
+                            <input type="tel" id="contact-phone" placeholder="+91 XXXXXXXXXX">
+                        </div>
+                        <div class="form-group-new">
+                            <label>Subject</label>
+                            <select id="contact-subject">
+                                <option>General Inquiry</option>
+                                <option>Technical Support</option>
+                                <option>Billing Question</option>
+                                <option>Feature Request</option>
+                                <option>Partnership</option>
+                                <option>Bug Report</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group-new">
+                        <label>Priority</label>
+                        <div class="priority-buttons">
+                            <button type="button" class="priority-btn low" data-priority="low" onclick="setPriority('low')">🟢 Low</button>
+                            <button type="button" class="priority-btn medium active" data-priority="medium" onclick="setPriority('medium')">🟡 Medium</button>
+                            <button type="button" class="priority-btn high" data-priority="high" onclick="setPriority('high')">🔴 High</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group-new">
+                        <label>Message *</label>
+                        <textarea id="contact-message" rows="4" placeholder="Tell us how we can help..."></textarea>
+                    </div>
+                    
+                    <div class="form-group-new">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="contact-copy"> Send me a copy of this message
+                        </label>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="sendMessage()" style="width: 100%;">
+                        Send Message → <span id="response-badge" class="response-badge">Fast Response</span>
+                    </button>
+                </div>
+
+                <div class="map-card">
+                    <h3>📍 Our Location</h3>
+                    <div class="map-placeholder" onclick="openMap()">
+                        <span>🗺️ Click to view map</span>
+                    </div>
+                    <div class="office-hours">
+                        <h4>🕐 Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                        <p>Saturday: 10:00 AM - 2:00 PM IST</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                    <div class="office-hours" style="margin-top: 1rem; background: #eef2ff;">
+                        <h4>⚡ Support Priority</h4>
+                        <p>Pro & Business: 24/7 Priority Support</p>
+                        <p>Free: Response within 48 hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-contact">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid-contact">
+                    <div class="faq-item-contact" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            How quickly do you respond?
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="faq-answer">We typically respond within 24 hours. Pro users get priority response within 4 hours.</div>
+                    </div>
+                    <div class="faq-item-contact" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            Do you offer phone support?
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="faq-answer">Yes, phone support is available for Pro and Business users during business hours.</div>
+                    </div>
+                    <div class="faq-item-contact" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            Can I get a demo before purchasing?
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="faq-answer">Absolutely! Schedule a free demo with our sales team through the contact form.</div>
+                    </div>
+                    <div class="faq-item-contact" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            Is there a community forum?
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="faq-answer">Yes! Join our community forum to connect with other Spendly users.</div>
+                    </div>
+                    <div class="faq-item-contact" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            How do I report a bug?
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="faq-answer">Use the "Bug Report" subject in the contact form or email bugs@spendly.com</div>
+                    </div>
+                    <div class="faq-item-contact" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            Do you have a status page?
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="faq-answer">Yes, visit status.spendly.com for real-time system status updates.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-connect">
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for updates, tips, and community support</p>
+                <div class="social-icons">
+                    <div class="social-icon" onclick="socialShare('twitter')">🐦</div>
+                    <div class="social-icon" onclick="socialShare('linkedin')">🔗</div>
+                    <div class="social-icon" onclick="socialShare('instagram')">📷</div>
+                    <div class="social-icon" onclick="socialShare('facebook')">📘</div>
+                    <div class="social-icon" onclick="socialShare('youtube')">▶️</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">spend<span>ly</span></div>
+                <p>Smart expense tracking for Indians. Take control of your finances today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="features.html">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="dashboard.html">Demo</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Spendly — Made with ❤️ for India</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/core/utils.js"></script>
+    <script>
+        let currentPriority = 'medium';
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+        
+        function setPriority(priority) {
+            currentPriority = priority;
+            document.querySelectorAll('.priority-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.priority-btn.${priority}`).classList.add('active');
+        }
+        
+        function getDirections() {
+            window.open('https://maps.google.com/?q=Bangalore+Karnataka+India', '_blank');
+            toast('Opening Google Maps...');
+        }
+        
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email);
+            toast(`Email ${email} copied to clipboard!`);
+        }
+        
+        function makeCall() {
+            window.location.href = 'tel:+919876543210';
+            toast('Initiating call...');
+        }
+        
+        function startLiveChat() {
+            toast('Live chat connecting... A representative will be with you shortly.');
+        }
+        
+        function openMap() {
+            window.open('https://maps.google.com/?q=Bangalore+Karnataka+India', '_blank');
+        }
+        
+        function toggleFaq(element) {
+            element.classList.toggle('open');
+        }
+        
+        function socialShare(platform) {
+            toast(`Opening ${platform}... Follow us for updates!`);
+        }
+        
+        function sendMessage() {
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const phone = document.getElementById('contact-phone').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+            const copySelf = document.getElementById('contact-copy').checked;
+            
+            if (!name || !email || !message) {
+                toast('Please fill in all required fields');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                toast('Please enter a valid email address');
+                return;
+            }
+            
+            toast(`Message sent! ${copySelf ? 'A copy has been sent to your email. ' : ''}We'll respond within ${currentPriority === 'high' ? '4' : currentPriority === 'medium' ? '24' : '48'} hours.`);
+            
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-phone').value = '';
+            document.getElementById('contact-message').value = '';
+            document.getElementById('contact-copy').checked = false;
+            setPriority('medium');
+        }
+        
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active')) {
+                if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                    menu.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
